@@ -77,7 +77,7 @@ form .underLine{
     padding : 10px 0 0;
     margin : 0;
 }
-#header label{
+label{
     display : none;
 }
 #loginForm>form input, #registerForm>form input{
