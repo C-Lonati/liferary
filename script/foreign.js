@@ -64,14 +64,14 @@ toggleB.addEventListener('click', function(){
 for(let i=0;i<foreignText.length;i++){
     foreignText[i].addEventListener('selectstart', () => {
         draged.remove(); //생성된 div.draged 지우기
-        foreignText[i].addEventListener('mouseup', () => { 
+        foreignText[i].addEventListener('mouseup', (e) => { 
             let innerString = window.getSelection().toString(); //선택한부분의 내용을 불러와서 문자로 변환해 innerString에 대입
             if (innerString.length > 0 && toggleD.classList.contains("toggleOn")) { //조건문 : 토글키 확인되고 드래그한 글자수가 0을 넘으면
                 foreignText[i].appendChild(draged); //원문 전체 div의(왼쪽 드래그하면 왼쪽, 오른쪽 드래그하면 오른쪽) 가장 앞쪽에 div생성
                 draged.classList.add('draged'); //방금 생성한 div에 .draged부여
-                draged.style.top = event.clientY + 30 + "px"; //div.draged 위치 지정
-                draged.style.left = event.clientX - 30 + "px"; //div.draged 위치 지정
-                //event.clientX, event.clientY : 마우스 이벤트니까 마우스 위치 잡아옴
+                draged.style.top = e.clientY + 30 + "px"; //div.draged 위치 지정
+                draged.style.left = e.clientX - 30 + "px"; //div.draged 위치 지정
+                //e.clientX, e.clientY : 팝업창 + 마우스 이벤트니까 창을 기준으로 마우스 위치 잡아옴
                 draged.innerText = innerString; //div.draged내부에 innerString값을 넣음
             }
         });

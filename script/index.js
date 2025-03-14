@@ -15,8 +15,8 @@ rightBtn.id = 'rightBtn';
 photoBack.appendChild(rightBtn);
 leftBtn.style.left = dis;
 rightBtn.style.right = dis;
-leftBtn.innerHTML = '<img src="images/singleLeft.svg">';
-rightBtn.innerHTML = '<img src="images/singleRight.svg">';
+leftBtn.innerHTML = '<img src="images/singleLeft.svg" alt="왼쪽 버튼">';
+rightBtn.innerHTML = '<img src="images/singleRight.svg" alt="오른쪽 버튼">';
 function leftSlide(indexNum){
     photo[indexNum].animate([
         // keyframes
