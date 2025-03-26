@@ -8,10 +8,13 @@ const toggle = document.getElementsByClassName('toggle');
 const sizeBtn = document.querySelectorAll('.transSize>li');
 const sizeT = document.getElementsByClassName('transSize');
 const foreignText = document.getElementsByClassName('foreignText');
-const krText = document.getElementsByClassName('krText');
+const krText = document.querySelectorAll('.krText');
+const krTextRight = document.querySelector('#foreignAfter .krText')
 const sizeSelect = document.getElementsByClassName('sizeSelected');
 const backBtn = document.getElementsByClassName('backBtn');
 let draged = document.createElement('div');
+if(window.innerWidth>=1200) sizeBtn[2].classList.add('sizeSelected');
+else sizeBtn[1].classList.add('sizeSelected');
 //토글키 온오프 제어
 for(var i=0; i<toggle.length; i++){ 
     toggle[i].addEventListener('click', function(){
@@ -31,9 +34,8 @@ sizeBtn.forEach(element => {
     let i = Number(element.innerHTML) + 'px'; //sizeBtn의 내부값을 Number데이터형으로 변경한 후 px를 붙여서 i에 저장 ex) 16->16(숫자)->16px
     element.style.fontSize = i;
     element.addEventListener('click', () => {
-        foreignText[0].style.fontSize = i;
-        foreignText[1].style.fontSize = i;
-        krText[0].style.fontSize = i;
+        foreignBefore.style.fontSize = i;
+        foreignAfter.style.fontSize = i;
         sizeSelect[0].classList.remove('sizeSelected')
         element.classList.add('sizeSelected');
     });
@@ -41,22 +43,18 @@ sizeBtn.forEach(element => {
 //야간모드 토글키 제어
 toggleB.addEventListener('click', function(){
     if(this.classList.contains('toggleOn')){
-        foreignText[0].classList.add('nightMod');
-        foreignText[1].classList.add('nightMod');
-        krText[0].classList.add('nightMod');
+        foreignBefore.classList.add('nightMod');
+        foreignAfter.classList.add('nightMod');
         draged.classList.add('nightMod');
-        foreignText[0].classList.remove('dayMod');
-        foreignText[1].classList.remove('dayMod');
-        krText[0].classList.remove('dayMod');
+        foreignBefore.classList.remove('dayMod');
+        foreignAfter.classList.remove('dayMod');
         draged.classList.remove('dayMod');
     }else {
-        foreignText[0].classList.add('dayMod');
-        foreignText[1].classList.add('dayMod');
-        krText[0].classList.add('dayMod');
+        foreignBefore.classList.add('dayMod');
+        foreignAfter.classList.add('dayMod');
         draged.classList.add('dayMod');
-        foreignText[0].classList.remove('nightMod');
-        foreignText[1].classList.remove('nightMod');
-        krText[0].classList.remove('nightMod');
+        foreignBefore.classList.remove('nightMod');
+        foreignAfter.classList.remove('nightMod');
         draged.classList.remove('nightMod');
     }
 });
@@ -80,11 +78,25 @@ for(let i=0;i<foreignText.length;i++){
 //자동번역 토글키 제어
 toggleT.addEventListener('click', function(){
     if(toggleT.classList.contains('toggleOn')){
-        krText[0].style.display = 'block';
-        foreignText[1].style.display = 'none';
+        if(window.innerWidth >= 1200){
+            foreignText[2].style.display = 'none';
+            krTextRight.style.display = 'block';
+        } else {
+            foreignText[1].style.display = 'none';
+            krText.forEach((el) => {
+                el.style.display = 'block';
+            });
+        }
     }else{
-        krText[0].style.display = 'none';
-        foreignText[1].style.display = 'block';
+        if(window.innerWidth >= 1200){
+            foreignText[2].style.display = 'block';
+            krTextRight.style.display = 'none';
+        } else {
+            foreignText[1].style.display = 'block';
+            krText.forEach((el) => {
+                el.style.display = 'none';
+            });
+        }
     }
 });
 backBtn[0].addEventListener('click', () => window.open("about:blank","_self").close()); //닫기버튼 제어
