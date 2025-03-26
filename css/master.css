@@ -386,7 +386,7 @@ label{
         background-size : 100%;
         transition : .3s;
     }
-    #loginForm, #resisterForm{
+    #loginForm, #registerForm{
         top : 10%;
     }
     #loginForm .loginHelp>a, .register{
