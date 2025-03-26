@@ -99,4 +99,8 @@ toggleT.addEventListener('click', function(){
         }
     }
 });
-backBtn[0].addEventListener('click', () => window.open("about:blank","_self").close()); //닫기버튼 제어
+backBtn[0].addEventListener('click', () => {
+    if(window.innerWidth >=1200)
+        window.open("about:blank","_self").close()
+    else history.back();
+}); //닫기버튼 제어
