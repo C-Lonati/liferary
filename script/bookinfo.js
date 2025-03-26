@@ -7,11 +7,11 @@ const price = document.getElementsByClassName('price');
 const miniBtn = document.querySelectorAll('.miniBtn');
 let productPrice = Number(13500);
 let topValue;
-if(window.innerWidth >= 1200) topValue = 1750;
-else topValue = 900;
+if(window.innerWidth >= 1200) topValue = 1700;
+else topValue = 1100;
 window.addEventListener('resize', ()=> {
-    if(window.innerWidth >= 1200) topValue = 1750;
-    else top = 900;
+    if(window.innerWidth >= 1200) topValue = 1700;
+    else topValue = 1100;
 });
 for(let i=0;i<hidden.length;i++){
     more[0].addEventListener('click', () => {
