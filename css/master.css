@@ -671,10 +671,15 @@ section{
     flex-wrap : wrap;
     gap : 20px;
 }
+#new>div:first-child{
+    padding : 20px 0 0;
+    flex : 1;
+}
 .newBook{
     display : flex;
     min-width : 300px;
     text-align: center;
+    flex : 3;
 }
 @media screen and (max-width : 1199px) {
     .newBook{
@@ -683,9 +688,6 @@ section{
 }
 .newBook .book{
     flex : 1;
-}
-#new>div:first-child{
-    padding : 20px 0 0;
 }
 
 
