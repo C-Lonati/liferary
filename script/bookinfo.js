@@ -6,6 +6,13 @@ const number = document.getElementsByClassName('number');
 const price = document.getElementsByClassName('price');
 const miniBtn = document.querySelectorAll('.miniBtn');
 let productPrice = Number(13500);
+let topValue;
+if(window.innerWidth >= 1200) topValue = 1750;
+else topValue = 900;
+window.addEventListener('resize', ()=> {
+    if(window.innerWidth >= 1200) topValue = 1750;
+    else top = 900;
+});
 for(let i=0;i<hidden.length;i++){
     more[0].addEventListener('click', () => {
         hidden[i].style.display='block';
@@ -20,8 +27,8 @@ for(let i=0;i<hidden.length;i++){
     });
 }
 window.addEventListener('scroll', function(){
-    if(document.documentElement.scrollTop>1750){
-        follow.style.top = document.documentElement.scrollTop-1750 + 'px';
+    if(document.documentElement.scrollTop>topValue){
+        follow.style.top = document.documentElement.scrollTop - topValue + 'px';
     }
 });
 miniBtn.forEach((element) =>{

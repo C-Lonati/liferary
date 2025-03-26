@@ -379,7 +379,7 @@ label{
     }
     .arrowBtn{
         float : right;
-        width : 10%;
+        width : 20px;
         height : 20px;
         margin-top : 5px;
         background : url(../images/arrowBtn.svg)50% 50% no-repeat;
@@ -527,6 +527,11 @@ section{
 }
 .lnbBar>p{
     height : 100%;
+}
+@media screen and (min-width : 767px) {
+    #lnb{
+        margin-bottom : 0 !important;
+    }
 }
 .books{
     display : flex;
@@ -1196,18 +1201,24 @@ section{
     flex-wrap: wrap;
 }
 .productImage{
-    box-sizing : content-box;
-    padding: 50px;
-    background : #ccc;
     max-height : 600px;
-    aspect-ratio: 2/3;
     text-align: center;
+}
+@media screen and (min-width : 1200px){
+    .productImage{
+        padding: 50px;
+        background : #ccc;
+        box-sizing : content-box;
+    }
+}
+.productImage img{
+    aspect-ratio: 2/3;
 }
 @media screen and (max-width : 767px) {
     .productImage{
         max-height : none;
         width : 100%;
-        aspect-ratio : unset;
+        padding : 0;
     }
 }
 .productInfo{
@@ -1271,17 +1282,6 @@ span.number{
 
 
 /*bookInfo section#followingWrapper*/
-@media screen and (max-width : 767px) {
-    #followingWrapper{
-        display : none;
-    }
-}
-@media screen and (max-width : 1200px) and (min-width : 768px) {
-    #followingWrapper{
-        top : 300px;
-        margin-right : 5vw;
-    }
-}
 #followingWrapper {
     float : right;
     width: 300px;
@@ -1302,6 +1302,17 @@ span.number{
 }
 #followingMenu>*{
     margin-bottom : 20px;
+}
+@media screen and (max-width : 767px) {
+    #followingWrapper{
+        display : none;
+    }
+}
+@media screen and (max-width : 1200px) and (min-width : 768px) {
+    #followingWrapper{
+        margin-right : 5vw;
+        height: 1800px;
+    }
 }
 
 
@@ -1358,7 +1369,7 @@ span.number{
     box-shadow: 0 0 5px #999;
     display : flex;
     flex-wrap : wrap;
-    gap : 50px min(20px, 2vw);
+    gap : 30px min(20px, 2vw);
 }
 #bbs .review .book{
     width : 30%;
@@ -1383,7 +1394,7 @@ span.number{
     border-radius: 10px 0 0;
 }
 .reviewBodySelect>h3{
-    padding : 20px 0;
+    padding : 0 0 10px;
 }
 .reviewBodySelect>p{
     padding : 5px 0;
